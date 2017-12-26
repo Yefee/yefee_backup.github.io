@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="Geek">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Chengfei He">
 <meta property="og:url" content="https://github.com/Yefee/yefee.github.io/index.html">
 <meta property="og:site_name" content="Chengfei He">
+<meta property="og:description" content="Geek">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chengfei He">
+<meta name="twitter:description" content="Geek">
 
 
 
@@ -283,140 +286,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/Yefee/yefee.github.io/2017/12/25/XCESM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Chengfei He">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/gs6.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Chengfei He">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/25/XCESM/" itemprop="url">XCESM</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-25T18:06:45-05:00">
-                2017-12-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="About-xcesm"><a href="#About-xcesm" class="headerlink" title="About xcesm"></a>About xcesm</h1><p>Xcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python. </p>
-<h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><p>Xcesm is still in developing, right now it has the following features:</p>
-<ul>
-<li>quick plot on global map (quickmap)</li>
-<li>regrid pop output to linear grids (regrid, nearest interpolation)</li>
-<li>compute global mean (gbmean, gbmeanpop)</li>
-<li>diagnose AMOC, PRECP, d18O(only support for iCESM), Heat transport etc.</li>
-<li>truncate ocean as several main basins (ocean_region)</li>
-</ul>
-<p>More feature will be added in the future.</p>
-<h1 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install"></a>How to install</h1><h3 id="via-git"><a href="#via-git" class="headerlink" title="via git"></a>via git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Yefee/xcesm.git</span><br><span class="line">cd xcesm</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<h1 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h1><h3 id="regrid"><a href="#regrid" class="headerlink" title="regrid"></a>regrid</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import xarray as xr</span><br><span class="line">import xcesm</span><br><span class="line">ds = xr.open_dataset(&apos;/examples/data/salt.nc&apos;)</span><br><span class="line"># defalut to 1x1 degree</span><br><span class="line">salt_rgd = ds.SALT.utils.regrid()</span><br><span class="line"></span><br><span class="line">print(ds.SALT.shape)</span><br><span class="line">(384, 320)</span><br><span class="line"></span><br><span class="line">print(salt_rgd.shape)</span><br><span class="line">(181, 361)</span><br></pre></td></tr></table></figure>
-<h3 id="quick-plot"><a href="#quick-plot" class="headerlink" title="quick plot"></a>quick plot</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">salt_rgd.utils.quickmap()</span><br></pre></td></tr></table></figure>
-<p><img src="https://github.com/Yefee/xcesm/blob/master/xcesm/examples/fig/salt.png" alt="salt_distribution"></p>
-<h1 id="And-more"><a href="#And-more" class="headerlink" title="And more"></a>And more</h1><p>I don’t have time to write documentation recently, but it will be released in this summer!</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/Yefee/yefee.github.io/2017/12/25/GCM-Averager/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -461,6 +330,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/25/GCM-Averager/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/25/GCM-Averager/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -594,7 +474,7 @@
                 alt="Chengfei He" />
             
               <p class="site-author-name" itemprop="name">Chengfei He</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Geek</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -604,7 +484,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -802,6 +682,14 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://Chengfei.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
 
 
 
@@ -817,25 +705,8 @@
 
 
 
-  
 
 
-
-
-
-
-
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-        <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
 
 
 
