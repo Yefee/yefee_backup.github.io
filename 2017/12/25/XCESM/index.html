@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="About xcesmXcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python.  FeaturesXcesm is still in developing, right now it has the following features:  quick plot o">
+<meta name="description" content="About xcesmXcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python.  FeaturesXcesm is still in developing, right now it has the following features:  quick plot">
 <meta name="keywords" content="python, CESM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XCESM">
 <meta property="og:url" content="https://github.com/Yefee/yefee.github.io/2017/12/25/XCESM/index.html">
 <meta property="og:site_name" content="Chengfei He">
-<meta property="og:description" content="About xcesmXcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python.  FeaturesXcesm is still in developing, right now it has the following features:  quick plot o">
+<meta property="og:description" content="About xcesmXcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python.  FeaturesXcesm is still in developing, right now it has the following features:  quick plot">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://github.com/Yefee/xcesm/blob/master/xcesm/examples/fig/salt.png">
-<meta property="og:updated_time" content="2017-12-26T00:42:42.000Z">
+<meta property="og:image" content="https://github.com/2017/12/25/XCESM/cover.gif">
+<meta property="og:image" content="https://github.com/Yefee/yefee.github.io/2017/12/25/XCESM/salt.png">
+<meta property="og:updated_time" content="2017-12-26T02:28:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XCESM">
-<meta name="twitter:description" content="About xcesmXcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python.  FeaturesXcesm is still in developing, right now it has the following features:  quick plot o">
-<meta name="twitter:image" content="https://github.com/Yefee/xcesm/blob/master/xcesm/examples/fig/salt.png">
+<meta name="twitter:description" content="About xcesmXcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python.  FeaturesXcesm is still in developing, right now it has the following features:  quick plot">
+<meta name="twitter:image" content="https://github.com/2017/12/25/XCESM/cover.gif">
 
 
 
@@ -367,7 +368,8 @@
       
 
       
-        <h1 id="About-xcesm"><a href="#About-xcesm" class="headerlink" title="About xcesm"></a>About xcesm</h1><p>Xcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python. </p>
+        <img src="/2017/12/25/XCESM/cover.gif" title="ocean eddy">
+<h1 id="About-xcesm"><a href="#About-xcesm" class="headerlink" title="About xcesm"></a>About xcesm</h1><p>Xcesm tries to provide an easy-to-use plugin for xarray to better handle CESM output in python. </p>
 <h1 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h1><p>Xcesm is still in developing, right now it has the following features:</p>
 <ul>
 <li>quick plot on global map (quickmap)</li>
@@ -380,7 +382,7 @@
 <h1 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install"></a>How to install</h1><h3 id="via-git"><a href="#via-git" class="headerlink" title="via git"></a>via git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Yefee/xcesm.git</span><br><span class="line">cd xcesm</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
 <h1 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use"></a>How to use</h1><h3 id="regrid"><a href="#regrid" class="headerlink" title="regrid"></a>regrid</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import xarray as xr</span><br><span class="line">import xcesm</span><br><span class="line">ds = xr.open_dataset(&apos;/examples/data/salt.nc&apos;)</span><br><span class="line"># defalut to 1x1 degree</span><br><span class="line">salt_rgd = ds.SALT.utils.regrid()</span><br><span class="line"></span><br><span class="line">print(ds.SALT.shape)</span><br><span class="line">(384, 320)</span><br><span class="line"></span><br><span class="line">print(salt_rgd.shape)</span><br><span class="line">(181, 361)</span><br></pre></td></tr></table></figure>
 <h3 id="quick-plot"><a href="#quick-plot" class="headerlink" title="quick plot"></a>quick plot</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">salt_rgd.utils.quickmap()</span><br></pre></td></tr></table></figure>
-<p><img src="https://github.com/Yefee/xcesm/blob/master/xcesm/examples/fig/salt.png" alt="salt_distribution"></p>
+<p><img src="salt.png" alt="salt_distribution"></p>
 <h1 id="And-more"><a href="#And-more" class="headerlink" title="And more"></a>And more</h1><p>I don’t have time to write documentation recently, but it will be released in this summer!</p>
 
       
