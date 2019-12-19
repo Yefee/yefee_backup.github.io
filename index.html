@@ -382,93 +382,17 @@
 
       
         
-          
-            <img src="/2019/09/18/xMCA/cover.pbm" title="SVD Decomposition">
+          <img src="/2019/09/18/xMCA/cover.pbm" title="SVD Decomposition">
 <p><a href="https://xmca.readthedocs.io/en/latest/?badge=latest" target="_blank" rel="noopener"><img src="https://readthedocs.org/projects/xmca/badge/?version=latest" alt="Documentation Status"></a></p>
 <h1 id="About-xMCA"><a href="#About-xMCA" class="headerlink" title="About xMCA"></a>About xMCA</h1><p>xMCA, inspired from EOFs <a href="https://github.com/ajdawson/eofs">https://github.com/ajdawson/eofs</a>,  is Maximum Covariance Analysis (sometimes also called SVD) in xarray. </p>
-<p>API Documentation: <a href="http://xmca.readthedocs.io/" target="_blank" rel="noopener">http://xmca.readthedocs.io/</a></p>
-<h1 id="How-to-install"><a href="#How-to-install" class="headerlink" title="How to install"></a>How to install</h1><h3 id="via-git"><a href="#via-git" class="headerlink" title="via git"></a>via git</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Yefee/xMCA.git</span><br><span class="line">cd xMCA</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<h1 id="Future-Plan"><a href="#Future-Plan" class="headerlink" title="Future Plan"></a>Future Plan</h1><p>In next version, A Monte Carlo method will be added for statistical test.</p>
-<h1 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h1><p>MCA analysis for US surface air temperature and SST over the Pacific.<br>This example is taken from <a href="https://atmos.washington.edu/~breth/classes/AS552/matlab/lect/html/MCA_PSSTA_USTA.html" target="_blank" rel="noopener">https://atmos.washington.edu/~breth/classes/AS552/matlab/lect/html/MCA_PSSTA_USTA.html</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> xMCA <span class="keyword">import</span> xMCA</span><br><span class="line"><span class="keyword">import</span> xarray <span class="keyword">as</span> xr</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">usta = xr.open_dataarray(<span class="string">'xMCA/examples/data/USTA.nc'</span>).transpose(*[<span class="string">'time'</span>, <span class="string">'lat'</span>, <span class="string">'lon'</span>])</span><br><span class="line">usta.name = <span class="string">'USTA'</span></span><br><span class="line">print(usta)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;xarray.DataArray &apos;USTA&apos; (time: 396, lat: 5, lon: 12)&gt;
-array([[[-0.450303, -0.734848, ..., -4.270303, -2.69697 ],
-        [ 1.066061,  2.691515, ..., -4.947273, -3.330303],
-        ...,
-        [      nan, -0.342424, ...,       nan,       nan],
-        [      nan,       nan, ...,       nan,       nan]],
-
-       [[ 1.524545,  1.370606, ..., -1.430303,  0.048485],
-        [ 1.366364,  2.497273, ..., -0.593939, -0.079697],
-        ...,
-        [      nan,  0.695455, ...,       nan,       nan],
-        [      nan,       nan, ...,       nan,       nan]],
-
-       ...,
-
-       [[ 1.077879,  0.630303, ..., -1.262727, -1.496364],
-        [ 1.020606,  0.114848, ..., -0.786667, -0.573939],
-        ...,
-        [      nan,  1.65    , ...,       nan,       nan],
-        [      nan,       nan, ...,       nan,       nan]],
-
-       [[ 1.768182,  2.807879, ...,  0.885758,  0.618182],
-        [ 1.555152,  3.435152, ..., -0.416667,  0.185152],
-        ...,
-        [      nan,  0.012121, ...,       nan,       nan],
-        [      nan,       nan, ...,       nan,       nan]]])
-Coordinates:
-  * lat      (lat) float64 47.5 42.5 37.5 32.5 27.5
-  * lon      (lon) float64 -122.5 -117.5 -112.5 -107.5 ... -77.5 -72.5 -67.5
-  * time     (time) int64 0 1 2 3 4 5 6 7 8 ... 388 389 390 391 392 393 394 395
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sstpc = xr.open_dataarray(<span class="string">'xMCA/examples/data/SSTPac.nc'</span>).transpose(*[<span class="string">'time'</span>, <span class="string">'lat'</span>, <span class="string">'lon'</span>])</span><br><span class="line">sstpc.name = <span class="string">'SSTPC'</span></span><br><span class="line">print(sstpc)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;xarray.DataArray &apos;SSTPC&apos; (time: 396, lat: 30, lon: 84)&gt;
-[997920 values with dtype=float64]
-Coordinates:
-  * lat      (lat) int16 -29 -27 -25 -23 -21 -19 -17 ... 17 19 21 23 25 27 29
-  * lon      (lon) uint16 124 126 128 130 132 134 ... 280 282 284 286 288 290
-  * time     (time) int64 0 1 2 3 4 5 6 7 8 ... 388 389 390 391 392 393 394 395
-</code></pre><h3 id="Decompsition-and-retrieve-the-first-and-second-loadings-and-expansion-coefficeints"><a href="#Decompsition-and-retrieve-the-first-and-second-loadings-and-expansion-coefficeints" class="headerlink" title="Decompsition and retrieve the first and second loadings and expansion coefficeints"></a>Decompsition and retrieve the first and second loadings and expansion coefficeints</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">decomposition, time should be in the first axis</span></span><br><span class="line"><span class="string">lp is for SSTPC</span></span><br><span class="line"><span class="string">rp is for USTA</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">sst_ts = xMCA(sstpc, usta)</span><br><span class="line">sst_ts.solver()</span><br><span class="line">lp, rp = sst_ts.patterns(n=<span class="number">2</span>)</span><br><span class="line">le, re = sst_ts.expansionCoefs(n=<span class="number">2</span>)</span><br><span class="line">frac = sst_ts.covFracs(n=<span class="number">2</span>)</span><br><span class="line">print(frac)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;xarray.DataArray &apos;frac&apos; (n: 2)&gt;
-array([0.407522, 0.391429])
-Coordinates:
-  * n        (n) int64 0 1
-Attributes:
-    long_name:  Fractions explained of the covariance matrix between SSTPC an...
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">12</span>, <span class="number">5</span>))</span><br><span class="line">lp[<span class="number">0</span>].plot(ax=ax1[<span class="number">0</span>])</span><br><span class="line">le[<span class="number">0</span>].plot(ax=ax1[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">rp[<span class="number">0</span>].plot(ax=ax2[<span class="number">0</span>])</span><br><span class="line">re[<span class="number">0</span>].plot(ax=ax2[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<img src="/2019/09/18/xMCA/example_6_1.png" title="left and right field and their PCs">
-<h3 id="Homogeneous-and-heterogeneous-regression"><a href="#Homogeneous-and-heterogeneous-regression" class="headerlink" title="Homogeneous and heterogeneous regression"></a>Homogeneous and heterogeneous regression</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lh, rh = sst_ts.homogeneousPatterns(n=<span class="number">1</span>)</span><br><span class="line">le, re = sst_ts.heterogeneousPatterns(n=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">12</span>, <span class="number">5</span>))</span><br><span class="line">lh[<span class="number">0</span>].plot(ax=ax1[<span class="number">0</span>])</span><br><span class="line">rh[<span class="number">0</span>].plot(ax=ax1[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">le[<span class="number">0</span>].plot(ax=ax2[<span class="number">0</span>])</span><br><span class="line">re[<span class="number">0</span>].plot(ax=ax2[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<img src="/2019/09/18/xMCA/example_9_1.png" title="Homogeneous and heterogeneous regression">
-<h3 id="Two-tailed-Student-t-test"><a href="#Two-tailed-Student-t-test" class="headerlink" title="Two-tailed Student-t test"></a>Two-tailed Student-t test</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">le, re, lphet, rphet = sst_ts.heterogeneousPatterns(n=<span class="number">1</span>, statistical_test=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fig, (ax1, ax2) = plt.subplots(<span class="number">2</span>, <span class="number">2</span>, figsize=(<span class="number">12</span>, <span class="number">5</span>))</span><br><span class="line">le[<span class="number">0</span>].plot(ax=ax1[<span class="number">0</span>])</span><br><span class="line">re[<span class="number">0</span>].plot(ax=ax1[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Only plot where p&lt;0.01</span></span><br><span class="line">lphet[<span class="number">0</span>].where(lphet[<span class="number">0</span>]&lt;<span class="number">0.01</span>).plot(ax=ax2[<span class="number">0</span>])</span><br><span class="line">rphet[<span class="number">0</span>].where(rphet[<span class="number">0</span>]&lt;<span class="number">0.01</span>).plot(ax=ax2[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<img src="/2019/09/18/xMCA/example_statistical_test_1.png" title="Statistical test">
-<h1 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h1><p>EOF analysis for US surface air temperature and SST over the Pacific<br>This example is taken from <a href="https://atmos.washington.edu/~breth/classes/AS552/matlab/lect/html/MCA_PSSTA_USTA.html" target="_blank" rel="noopener">https://atmos.washington.edu/~breth/classes/AS552/matlab/lect/html/MCA_PSSTA_USTA.html</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> xMCA <span class="keyword">import</span> xMCA</span><br><span class="line"><span class="keyword">import</span> xarray <span class="keyword">as</span> xr</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sstpc = xr.open_dataarray(<span class="string">'data/SSTPac.nc'</span>).transpose(*[<span class="string">'time'</span>, <span class="string">'lat'</span>, <span class="string">'lon'</span>])</span><br><span class="line">sstpc.name = <span class="string">'SSTPC'</span></span><br><span class="line">print(sstpc)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;xarray.DataArray &apos;SSTPC&apos; (time: 396, lat: 30, lon: 84)&gt;
-[997920 values with dtype=float64]
-Coordinates:
-  * lat      (lat) int16 -29 -27 -25 -23 -21 -19 -17 ... 17 19 21 23 25 27 29
-  * lon      (lon) uint16 124 126 128 130 132 134 ... 280 282 284 286 288 290
-  * time     (time) int64 0 1 2 3 4 5 6 7 8 ... 388 389 390 391 392 393 394 395
-</code></pre><p>Decompsition and retrieve the first and second loadings and expansion coefficeints </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">decomposition, time should be in the first axis</span></span><br><span class="line"><span class="string">lp is for SSTPC</span></span><br><span class="line"><span class="string">rp is for USTA</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">sst_ts = xMCA(sstpc, sstpc.rename(<span class="string">'SSTPC_copy'</span>))</span><br><span class="line">sst_ts.solver()</span><br><span class="line">lp, _ = sst_ts.patterns(n=<span class="number">2</span>)</span><br><span class="line">le, _ = sst_ts.expansionCoefs(n=<span class="number">2</span>)</span><br><span class="line">frac = sst_ts.covFracs(n=<span class="number">2</span>)</span><br><span class="line">print(frac)</span><br></pre></td></tr></table></figure>
-<pre><code>&lt;xarray.DataArray &apos;frac&apos; (n: 2)&gt;
-array([0.873075, 0.04946 ])
-Coordinates:
-  * n        (n) int64 0 1
-Attributes:
-    long_name:  Fractions explained of the covariance matrix between SSTPC an...
-</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fig, ax1 = plt.subplots(<span class="number">1</span>, <span class="number">2</span>, figsize=(<span class="number">12</span>, <span class="number">5</span>))</span><br><span class="line">lp[<span class="number">0</span>].plot(ax=ax1[<span class="number">0</span>])</span><br><span class="line">le[<span class="number">0</span>].plot(ax=ax1[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
-<img src="/2019/09/18/xMCA/example_eof_5_1.png" title="EOF or PCA">
-<p>Regress PC1 to the original SST field</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lh, _ = sst_ts.homogeneousPatterns(n=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fig, ax1= plt.subplots()</span><br><span class="line">lh[<span class="number">0</span>].plot(ax=ax1)</span><br></pre></td></tr></table></figure>
-<img src="/2019/09/18/xMCA/example_eof_8_1.png" title="Regression">
-
-          
+<p>API Documentation: <a href="http://xmca.readthedocs.io/" target="_blank" rel="noopener">http://xmca.readthedocs.io/</a><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/09/18/xMCA/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
