@@ -94,7 +94,7 @@
 <meta property="og:description" content="How warm the future will be and how certain we areThe ongoing warming is a well-accepted feature of the near future climate change, however how warm it will be and how certain we are remain debatable">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://github.com/2018/12/18/BMA/cover.gif">
-<meta property="og:updated_time" content="2019-12-19T03:24:47.962Z">
+<meta property="og:updated_time" content="2019-12-19T03:25:59.544Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BMA">
 <meta name="twitter:description" content="How warm the future will be and how certain we areThe ongoing warming is a well-accepted feature of the near future climate change, however how warm it will be and how certain we are remain debatable">
@@ -386,8 +386,8 @@
 <h1 id="How-warm-the-future-will-be-and-how-certain-we-are"><a href="#How-warm-the-future-will-be-and-how-certain-we-are" class="headerlink" title="How warm the future will be and how certain we are"></a>How warm the future will be and how certain we are</h1><p>The ongoing warming is a well-accepted feature of the near future climate change, however how warm it will be and how certain we are remain debatable and unclear, even though significant progress has been made in qualifying the increase in the temperature by averaging an bunch of start-of-the-art climate models (e.g. the CMIP5) or an ensemble of member forecasts from a single model (e.g. CESM-LEN). Here I provide modeling evidence that reveals the increase in temperature and its uncertainty based on Bayesian Inference. Basically,  members from an ensemble model prediction is exxtracted randomly, then they are regressed on historical observation data using Bayesian linear regression. Finally these Bayesian models are averaged by stacking the predictive distributions. The results show that the stacking model can largely remove the error in the testing period and predict that the global mean surface air temperature at the end of this century is about 3 oC warmer in RCP8.5 scenario, not as intense as that of the ensemble mean, which warms about 4 oC. The warming mostly occurs at high latitudes but with large certainty which shall be taken into serious consideration by policy makers. </p>
 <p>Simple inline $ a = b + c $.</p>
 <h1 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h1><p>The BMA method for calibrating forecast ensembles was first introduced by Raftery et al (2008). The BMA predictive PDF of a future weather quantity $x$ is the weighted sum of individual PDFs corresponding to the ensemble members.</p>
-<p>$$p \left(x|F_1,…,F<em>M \right)<br>= \sum{</em>{k=1}^{M}w<em>{k}g</em>{k}(x|F_k)}$$</p>
-<p>where $g_k (x│F_k )$ can be interpreted as the conditional PDF of $x$ conditional on the forecast $F_k$ and weight $w_k$ is the probability of ensemble member k being the best and is based on forecast $F<em>k$ ’s performance in the training period. The weights form a probability distribution such that  $\sum{</em>{k=1}^{M}w_k} = 1$ and $w_k≥0$. </p>
+<p>$$p \left(x|F_1,…,F<em>M \right)<br>= \sum</em>{k=1}^{M}{w<em>{k}g</em>{k}(x|F_k)}$$</p>
+<p>where $g_k (x│F_k )$ can be interpreted as the conditional PDF of $x$ conditional on the forecast $F_k$ and weight $w_k$ is the probability of ensemble member k being the best and is based on forecast $F<em>k$ s performance in the training period. The weights form a probability distribution such that  $\sum{</em>{k=1}^{M}w_k} = 1$ and $w_k≥0$. </p>
 <p>$$\frac{\partial u}{\partial t}<br>= h^2 \left( \frac{\partial^2 u}{\partial x^2} +<br>\frac{\partial^2 u}{\partial y^2} +<br>\frac{\partial^2 u}{\partial z^2}\right)$$</p>
 
       
