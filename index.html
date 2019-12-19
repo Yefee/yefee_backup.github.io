@@ -11,7 +11,7 @@
 
 <html class="theme-next mist use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -143,7 +143,7 @@
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
   ga('create', 'UA-111643061-1', 'auto');
   ga('send', 'pageview');
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -158,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -287,6 +287,141 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Yefee/yefee.github.io/2018/12/18/BMA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Chengfei He">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/gs6.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Chengfei He">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/18/BMA/" itemprop="url">BMA</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-18T21:37:51-05:00">
+                2018-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/18/BMA/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/18/BMA/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <img src="/2018/12/18/BMA/cover.gif" title="ocean eddy">
+<h1 id="How-warm-the-future-will-be-and-how-certain-we-are"><a href="#How-warm-the-future-will-be-and-how-certain-we-are" class="headerlink" title="How warm the future will be and how certain we are"></a>How warm the future will be and how certain we are</h1><p>The ongoing warming is a well-accepted feature of the near future climate change, however how warm it will be and how certain we are remain debatable and unclear, even though significant progress has been made in qualifying the increase in the temperature by averaging an bunch of start-of-the-art climate models (e.g. the CMIP5) or an ensemble of member forecasts from a single model (e.g. CESM-LEN). Here I provide modeling evidence that reveals the increase in temperature and its uncertainty based on Bayesian Inference. Basically,  members from an ensemble model prediction is exxtracted randomly, then they are regressed on historical observation data using Bayesian linear regression. Finally these Bayesian models are averaged by stacking the predictive distributions. The results show that the stacking model can largely remove the error in the testing period and predict that the global mean surface air temperature at the end of this century is about 3 oC warmer in RCP8.5 scenario, not as intense as that of the ensemble mean, which warms about 4 oC. The warming mostly occurs at high latitudes but with large certainty which shall be taken into serious consideration by policy makers. </p>
+<h1 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h1><p>The BMA method for calibrating forecast ensembles was first introduced by Raftery et al(2008). The BMA predictive PDF of a future weather quantity x is the weighted sum of individual PDFs corresponding to the ensemble members.</p>
+<p>$$p(x|F_1,…,F<em>M) = \sum{</em>{k=1}^{M}w<em>{k}g</em>{k}(x|F_k)}$$</p>
+<p>where $g_k (x│F_k )$ can be interpreted as the conditional PDF of $x$ conditional on the forecast $F_k$ and weight $w_k$ is the probability of ensemble member k being the best and is based on forecast $F<em>k$’s performance in the training period. The weights form a probability distribution such that  $\sum{</em>{k=1}^{M}w_k} = 1$ and $w_k≥0$. </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -626,7 +761,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -639,7 +774,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -706,7 +841,7 @@
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -1242,7 +1377,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
